@@ -52,6 +52,8 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
 # Strona internetowa dla opiekunek - logowanie i podpisywanie dokumentów
 
 # Seć komputerowa
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_174626.jpg)
+Przedstawione zdjęcie ukazuje klastr sieciowy w fazie testowej. Po lewej stronie znajdują się serwery, które działają jako serwery plików, backupy, bazy danych oraz backendy aplikacji do zarządzania biurem. Na prawo i na dole widoczne są routery WiFi, switch oraz router Cisco. Wszystkie urządzenia w biurze, łącznie z komputerami, drukarkami i urządzeniami monitorującymi, są podłączone do centralnego punktu, który oddziela i zabezpiecza połączenia, zapewniając odpowiednią przepustowość potrzebną do najefektywniejszej pracy złożonej infrastruktury.
 
 # Rozwiązania techniczne VoIP
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_164237.jpg)
