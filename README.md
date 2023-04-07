@@ -1,7 +1,6 @@
 # Agencja-pracy
 
-+ [Oprogramowanie do obsługi biura]()
-+ [Strona internetowa dla opiekunek - logowanie i podpisywanie dokumentów](https://github.com/michalmiac/Agencja-pracy/edit/main/README.md#strona-internetowa-dla-opiekunek---logowanie-i-podpisywanie-dokument%C3%B3w)
++ [Oprogramowanie do obsługi biura](https://github.com/michalmiac/Agencja-pracy/edit/main/README.md#oprogramowanie-do-obs%C5%82ugi-biura)
 + [Klastr sieciowy](https://github.com/michalmiac/Agencja-pracy/edit/main/README.md#se%C4%87-komputerowa)
 + [Rozwiązania techniczne VoIP](https://github.com/michalmiac/Agencja-pracy/edit/main/README.md#rozwi%C4%85zania-techniczne-voip)
 
@@ -49,9 +48,12 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
 
 
 ### Poniżej przedstawione zostały fragmenty kodu oprogramowania, które służą do obsługi zadań biurowych i mają na celu pokazanie technicznych rozwiązań zastosowanych w aplikacji. Przedstawione kod zostały zaprojektowany z myślą o zwiększeniu efektywności programowania oraz zapewnieniu większej wydajności i skalowalności aplikacji. Dzięki nim tworzenie aplikacji staje się bardziej intuicyjne, a programowanie jest łatwiejsze i szybsze.
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-13-21.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-17-03.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-54.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-37.png)
 
 
-# Strona internetowa dla opiekunek - logowanie i podpisywanie dokumentów
 
 # Klastr sieciowy
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_174626.jpg)
