@@ -1,5 +1,10 @@
 # Agencja-pracy
 
++ [Oprogramowanie do obsługi biura]()
++ [Strona internetowa dla opiekunek - logowanie i podpisywanie dokumentów](https://github.com/michalmiac/Agencja-pracy/edit/main/README.md#strona-internetowa-dla-opiekunek---logowanie-i-podpisywanie-dokument%C3%B3w)
++ [Seć komputerowa](https://github.com/michalmiac/Agencja-pracy/edit/main/README.md#se%C4%87-komputerowa)
++ [Rozwiązania techniczne VoIP](https://github.com/michalmiac/Agencja-pracy/edit/main/README.md#rozwi%C4%85zania-techniczne-voip)
+
 W mojej agencji pracy, która zajmuje się zatrudnianiem pracowników do opieki osób starszych w ich własnych domach, dziedzina informatyczna odgrywa kluczową rolę. W oparciu o specjalistyczne oprogramowanie, rozwijane przeze mnie, byliśmy w stanie efektywnie zarządzać i organizować pracę naszych pracowników oraz zapewnić pełną obsługę administracyjną biura.
 
 Moje rozwiązania informatyczne pozwalają na łatwe i szybkie zarządzanie zleceniami, przypisywanie opiekunów do konkretnych klientów, monitorowanie realizacji zadań oraz generowanie raportów. Wszystkie te funkcjonalności są dostępne w przejrzystym i intuicyjnym interfejsie graficznym, który został zaprojektowany z myślą o wygodzie i efektywności pracy moich pracowników.
@@ -44,8 +49,8 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
 
 
 
-+ Optymalizowanie procesu rekrutacji
+# Strona internetowa dla opiekunek - logowanie i podpisywanie dokumentów
 
-+ Seć komputerowa
+# Seć komputerowa
 
-+ Rozwiązania techniczne
+# Rozwiązania techniczne VoIP
