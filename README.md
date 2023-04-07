@@ -19,7 +19,7 @@ Na tym zdjęciu ukazane jest okno, które służy do zapisywania danych kontakto
 
 
 
-![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-53-16.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-53-26.png)
 
 
 
