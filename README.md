@@ -8,7 +8,28 @@ Oprócz rozwiązań związanych bezpośrednio z zarządzaniem zleceniami, oprogr
 
 Wszystkie te rozwiązania informatyczne są stale rozwijane i doskonalone przeze mnie, aby sprostać wymaganiom naszych klientów oraz zapewnić najlepszą jakość usług w dziedzinie opieki nad osobami starszymi.
 
-+ Oprogramowanie do obsługi biura
++ # Oprogramowanie do obsługi biura
+
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-51-18.png)
+Na pierwszym zdjęciu, które jest widoczne po zalogowaniu się użytkownika, pojawia się interfejs graficzny umożliwiający dodawanie, usuwanie oraz wyświetlanie pracowników z baz kontaktowych. Centralnym elementem interfejsu jest tabela prezentująca listę kontaktów, która umożliwia filtrowanie i sortowanie wyników według różnych kryteriów, takich jak znajomość języka czy płeć. Takie funkcjonalności są niezwykle istotne dla firmy, ponieważ umożliwiają odnajdywanie pracowników, którzy są idealnie dopasowani do potrzeb klientów, takich jak starsze osoby wymagające opieki. Baza danych pracowników, która została ujęta w interfejsie graficznym, stanowi zatem najważniejszy zasób firmy.
+
+
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2014-15-04.png)
+Na tym zdjęciu ukazane jest okno, które służy do zapisywania danych kontaktowych pracownika w bazie danych. Opcje, które można wybrać podczas zapisywania informacji, są niezwykle istotne z punktu widzenia rekrutacji, umożliwiając dokładną ocenę spełnienia wymagań klienta przez danego pracownika. Przykładowo, można określić preferencje dotyczące palenia papierosów. Dodatkowo, korzyścią jest możliwość zapisywania rozmów z pracownikiem, co zapewnia przyszłą możliwość odnalezienia niezbędnych informacji z rozmów. Dzięki temu okno zapisywania kontaktów stanowi wyjątkowo przydatne narzędzie dla firmy, pozwalając na dokładne dobieranie pracowników do potrzeb klientów.
+
+
+
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-53-16.png)
+
+
+
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-53-47.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-54-12.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-51-18.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-54-42.png)
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2012-55-02.png)
+
+
 
 + Optymalizowanie procesu rekrutacji
 
