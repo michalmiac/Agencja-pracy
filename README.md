@@ -12,6 +12,15 @@ Oprócz rozwiązań związanych bezpośrednio z zarządzaniem zleceniami, oprogr
 
 Wszystkie te rozwiązania informatyczne są stale rozwijane i doskonalone przeze mnie, aby sprostać wymaganiom naszych klientów oraz zapewnić najlepszą jakość usług w dziedzinie opieki nad osobami starszymi.
 
+
+# Klastr sieciowy
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_174626.jpg)
+Przedstawione zdjęcie ukazuje klastr sieciowy w fazie testowej. Po lewej stronie znajdują się serwery, które działają jako serwery plików, backupy, bazy danych oraz backendy aplikacji do zarządzania biurem. Na prawo i na dole widoczne są routery WiFi, switch oraz router Cisco. Wszystkie urządzenia w biurze, łącznie z komputerami, drukarkami i urządzeniami monitorującymi, są podłączone do centralnego punktu, który oddziela i zabezpiecza połączenia, zapewniając odpowiednią przepustowość potrzebną do najefektywniejszej pracy złożonej infrastruktury.
+
+# Rozwiązania techniczne VoIP
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_164237.jpg)
+Na powyższym zdjęciu widoczne są elementy elektroniczne ułożone kolejno od lewej strony: przetwornica step-down, moduł GSM/GPRS SIM800L, złącza wychodzące z modułu do płytki z rezystorami, które prowadzą do połączenia Audio Jack, oraz na końcu karta dźwiękowa. Dzięki połączeniu modułu SIM800L z komputerem za pomocą portu szeregowego, możliwe jest sterowanie modułu, wysyłanie poleceń służących do wysyłania i odbierania wiadomości tekstowych (SMS) oraz  wydawania poleceń do rozpoczęcia połączeń głosowych. Do tego projektu specjalnie stworzono program w języku Java umożliwiający wysyłanie poleceń ATM przez port szeregowy do płytki GSM, a tym samym odbieranie i wysyłanie wiadomości tekstowych (SMS) przez ten sam kanał. Natomiast dźwięk, który dociera do modułu GSM, jest przekazywany przez rezystory do złącza Audio Jack, a następnie do karty dźwiękowej. Wysyłanie dźwięku do modułu GSM działa w dokładnie odwrotny sposób, gdzie karta graficzna wysyła dźwięk do złącza Audio Jack, a następnie przechodzi on przez rezystory do płytki GSM, co pozwala na wymianę dźwiękową. Istotnym elementem w przedstawionym połączeniu dźwiękowym jest przesyłanie poleceń ATM w celu rozpoczęcia połączenia, ale oczywiście równie ważne jest możliwość odbierania dźwięku oraz wysyłania dźwięku z karty graficznej. Do tego celu służył kolejny program napisany w języku Java. 
+
 # Oprogramowanie do obsługi biura
 ### Poniżej przedstawiono graficzne ujęcia niektórych modułów programu do zarządzania zadaniami w biurze. Stanowią one jedynie niewielki wycinek dostępnych funkcjonalności, a ich celem jest ogólne zobrazowanie zadań, które stoją przed naszą firmą.
 
@@ -53,12 +62,3 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-54.png)
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-37.png)
 
-
-
-# Klastr sieciowy
-![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_174626.jpg)
-Przedstawione zdjęcie ukazuje klastr sieciowy w fazie testowej. Po lewej stronie znajdują się serwery, które działają jako serwery plików, backupy, bazy danych oraz backendy aplikacji do zarządzania biurem. Na prawo i na dole widoczne są routery WiFi, switch oraz router Cisco. Wszystkie urządzenia w biurze, łącznie z komputerami, drukarkami i urządzeniami monitorującymi, są podłączone do centralnego punktu, który oddziela i zabezpiecza połączenia, zapewniając odpowiednią przepustowość potrzebną do najefektywniejszej pracy złożonej infrastruktury.
-
-# Rozwiązania techniczne VoIP
-![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_164237.jpg)
-Na powyższym zdjęciu widoczne są elementy elektroniczne ułożone kolejno od lewej strony: przetwornica step-down, moduł GSM/GPRS SIM800L, złącza wychodzące z modułu do płytki z rezystorami, które prowadzą do połączenia Audio Jack, oraz na końcu karta dźwiękowa. Dzięki połączeniu modułu SIM800L z komputerem za pomocą portu szeregowego, możliwe jest sterowanie modułu, wysyłanie poleceń służących do wysyłania i odbierania wiadomości tekstowych (SMS) oraz  wydawania poleceń do rozpoczęcia połączeń głosowych. Do tego projektu specjalnie stworzono program w języku Java umożliwiający wysyłanie poleceń ATM przez port szeregowy do płytki GSM, a tym samym odbieranie i wysyłanie wiadomości tekstowych (SMS) przez ten sam kanał. Natomiast dźwięk, który dociera do modułu GSM, jest przekazywany przez rezystory do złącza Audio Jack, a następnie do karty dźwiękowej. Wysyłanie dźwięku do modułu GSM działa w dokładnie odwrotny sposób, gdzie karta graficzna wysyła dźwięk do złącza Audio Jack, a następnie przechodzi on przez rezystory do płytki GSM, co pozwala na wymianę dźwiękową. Istotnym elementem w przedstawionym połączeniu dźwiękowym jest przesyłanie poleceń ATM w celu rozpoczęcia połączenia, ale oczywiście równie ważne jest możliwość odbierania dźwięku oraz wysyłania dźwięku z karty graficznej. Do tego celu służył kolejny program napisany w języku Java. 
