@@ -18,14 +18,13 @@ Wszystkie te rozwiązania informatyczne są stale rozwijane i doskonalone przeze
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_174626.jpg)
 Przedstawione zdjęcie ukazuje klastr sieciowy w fazie testowej. Po lewej stronie znajdują się serwery, które działają jako serwery plików, backupy, bazy danych oraz backendy aplikacji do zarządzania biurem. Na prawo i na dole widoczne są routery WiFi, switch oraz router Cisco. Wszystkie urządzenia w biurze, łącznie z komputerami, drukarkami i urządzeniami monitorującymi, są podłączone do centralnego punktu, który oddziela i zabezpiecza połączenia, zapewniając odpowiednią przepustowość potrzebną do najefektywniejszej pracy złożonej infrastruktury.
 
-+ Wykorzystanie urządzenia Raspberry do stworzenia rozwiązania informatycznego.
-Instalacja obrazu systemu Ubuntu Server na urządzeniu Raspberry, jako stabilnego i dobrze znanej mi struktury systemu.
-  + Zastosowanie bazy danych MongoDB do przechowywania danych, ze względu ich formatu JSON dla agregacji obiektów z języka Java
-  + Dostęp do serwera plików dobywa się za pomocą protokołu SSH. Zewnętrzny graficzny dostęp do plików odbywa się za pośrednictwem protokołu SFTP w oknie       eksploratora plików w systemie Ubuntu. Chociaż nie jest to optymalny sposób zabezpieczenia, to ze względu na to, że jest to sieć lokalna, zdecydowałem,     że każdemu użytkownikowi zostanie przydzielony tylko odpowiedni dostęp do plików i pełnionej przez niego funkcji w firmie.
++ Instalacja obrazu systemu **Ubuntu Server** na urządzeniu **Raspberry**, jako stabilnego i dobrze znanej mi struktury systemu.
+  + Zastosowanie bazy danych **MongoDB**, ze względu na format **JSON**, dla agregacji obiektów z języka Java
+  + **SpringBoot** wykorzystany jako REST server
+  + Dostęp do serwera plików za pomocą protokołu **SSH**. Zewnętrzny graficzny dostęp do plików za pośrednictwem protokołu **SFTP** w oknie eksploratora plików w       systemie Ubuntu.
+  + Program **Bacula** do tworzenia kopii zapasaowych
+  + Dostęp zdalny do zasobów za pomocą technologii **OpenVPN**
 
-Dzięki zastosowaniu protokołu SSH udało mi się stworzyć bezpieczne i niezawodne rozwiązanie, które pozwala na szybkie i łatwe udostępnianie plików w ramach sieci lokalnej. Zastosowanie protokołu SFTP pozwala na wygodny dostęp do plików z poziomu okna eksploratora plików, co z kolei zwiększa efektywność pracy.
-
-Jestem przekonany, że zastosowanie tego rodzaju technologii pozwoliło mi na osiągnięcie lepszych wyników w moim projekcie, a także na zdobycie nowych doświadczeń w dziedzinie technologii informatycznych.
 
 # Rozwiązania techniczne VoIP
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/20230407_164237.jpg)
