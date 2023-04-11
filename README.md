@@ -67,7 +67,8 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
 
 ### Poniżej przedstawione zostały fragmenty kodu oprogramowania, które służą do obsługi zadań biurowych i mają na celu pokazanie technicznych rozwiązań zastosowanych w aplikacji. Przedstawione kod zostały zaprojektowany z myślą o zwiększeniu efektywności programowania oraz zapewnieniu większej wydajności i skalowalności aplikacji. Dzięki nim tworzenie aplikacji staje się bardziej intuicyjne, a programowanie jest łatwiejsze i szybsze.
 
-<pre><code> default Object createDto(Object dtoObject, Object controllerClass, @Nullable List<?> list, @Nullable String ARRAY_NAME) throws IOException {
+```java
+default Object createDto(Object dtoObject, Object controllerClass, @Nullable List<?> list, @Nullable String ARRAY_NAME) throws IOException {
     ObjectMapper mapper = new ObjectMapper();
     ObjectNode jsonNode = mapper.createObjectNode();
 
@@ -122,8 +123,7 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
     dtoObject = mapper.treeToValue(jsonNode, dtoObject.getClass());
     return dtoObject;
 }
-    </code></pre>
-    
+```    
 Ten kod ma na celu umożliwienie skalowalności poprzez wykorzystanie adnotacji MyAnno, która pozwala swobodnie określać pola, z których ma być wyciągnięta wartość. Dzięki temu można w łatwy sposób dodać nowe pola bez konieczności modyfikowania metody createDto.
     
 + Użyłem obiektu ObjectNode do przechowywania kluczy i wartości w formacie JSON.
@@ -132,64 +132,39 @@ Ten kod ma na celu umożliwienie skalowalności poprzez wykorzystanie adnotacji 
 + Użyłem wyrażenia switch z jawnymi wartościami dla typów pól, co pozwala uniknąć konieczności korzystania z metody instanceof.
 
 
+```java
+private static final Map<Class<?>, Consumer<Object>> HANDLERS = new HashMap<>();
 
-<pre><code> default void setEventHandlerOnAllElements(Object controllerClass, EventHandleInterfaceHandler eventHandleInterfaceHandler, ButtonEventHandleInterfaceHandler buttonEventHandleInterfaceHandler)  {
-        Arrays.stream(controllerClass.getClass().getFields()).filter(fieldAll -> fieldAll.isAnnotationPresent(MyAnno.class)).forEach(fieldFiltered -> {
-            switch (fieldFiltered.getType().getCanonicalName()) {
-                case "javafx.scene.control.Button":
-                    Button button = null;
+static {
+    HANDLERS.put(Button.class, controller -> {
+        Button button = (Button) controller;
+        button.setOnAction(event -> buttonEventHandleInterfaceHandler.handle());
+    });
+    HANDLERS.put(CheckBox.class, controller -> {
+        CheckBox checkBox = (CheckBox) controller;
+        checkBox.setOnAction(event -> eventHandleInterfaceHandler.handle());
+    });
+    HANDLERS.put(ChoiceBox.class, controller -> {
+        ChoiceBox choiceBox = (ChoiceBox) controller;
+        choiceBox.setOnAction(event -> eventHandleInterfaceHandler.handle());
+    });
+}
+
+public static void setEventHandlerOnAllElements(Object controllerClass, EventHandleInterfaceHandler eventHandleInterfaceHandler, ButtonEventHandleInterfaceHandler buttonEventHandleInterfaceHandler) {
+    Arrays.stream(controllerClass.getClass().getFields())
+            .filter(field -> field.isAnnotationPresent(MyAnno.class))
+            .forEach(field -> {
+                Class<?> fieldType = field.getType();
+                if (HANDLERS.containsKey(fieldType)) {
                     try {
-                        button = (Button) fieldFiltered.get(controllerClass);
+                        Object fieldObject = field.get(controllerClass);
+                        HANDLERS.get(fieldType).accept(fieldObject);
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     }
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            buttonEventHandleInterfaceHandler.handle();
-                        }
-                    });
-                    break;
-                case "javafx.scene.control.CheckBox":
-                    CheckBox checkBox = null;
-                    try {
-                        checkBox = (CheckBox) fieldFiltered.get(controllerClass);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                    checkBox.setOnAction(new EventHandler<ActionEvent>() {
-                        @SneakyThrows
-                        @Override
-                        public void handle(ActionEvent event) {
-                            eventHandleInterfaceHandler.handle();
-                        }
-                    });
-                    break;
-                case "javafx.scene.control.ChoiceBox":
-                    ChoiceBox choiceBox = null;
-                    try {
-                        choiceBox = (ChoiceBox) fieldFiltered.get(controllerClass);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                    choiceBox.setOnAction(new EventHandler<ActionEvent>() {
-                        @SneakyThrows
-                        @Override
-                        public void handle(ActionEvent event) {
-                            eventHandleInterfaceHandler.handle();
-                        }
-                    });
-                    break;
-            }
-
-        });
-
-
-    }
-    </code></pre>
-
-
-Powyższy kod mać na celu ułatwienie obsługi zdarzeń dla wielu elementów interfejsu użytkownika w kontrolerze w JavaFX. Adnotacja MyAnno została stworzona specjalnie do tego celu i służy do oznaczania pól w klasie kontrolera, które mają być użyte do obsługi zdarzeń. Zgodnie z kodem, tylko pola oznaczone tą adnotacją będą przetwarzane w metodzie setEventHandlerOnAllElements.
-To podejście może ułatwić programowanie interfejsu użytkownika, gdyż pozwala na zdefiniowanie pól, które mają być użyte do obsługi zdarzeń, a następnie ich szybkie i łatwe przetwarzanie w całej klasie kontrolera.
-
-
+                }
+            });
+}
+```
+    
+Powyższy kod mać na celu ułatwienie obsługi zdarzeń dla wielu elementów interfejsu użytkownika w kontrolerze w JavaFX. Adnotacja MyAnno została stworzona specjalnie do tego celu i służy do oznaczania pól w klasie kontrolera, które mają być użyte do obsługi zdarzeń. Zgodnie z kodem, tylko pola oznaczone tą adnotacją będą przetwarzane w metodzie setEventHandlerOnAllElements.To podejście może ułatwić programowanie interfejsu użytkownika, gdyż pozwala na zdefiniowanie pól, które mają być użyte do obsługi zdarzeń, a następnie ich szybkie i łatwe przetwarzanie w całej klasie kontrolera.
