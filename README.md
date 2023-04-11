@@ -100,14 +100,6 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
                         case "java.lang.String":
                             jsonNode.put(field.getName(), (String) value);
                             break;
-                        case "java.util.Optional":
-                            Optional<?> optional = (Optional<?>) value;
-                            if (optional.isPresent()) {
-                                jsonNode.put(field.getName(), optional.get().toString());
-                            } else {
-                                jsonNode.putNull(field.getName());
-                            }
-                            break;
                         default:
                             throw new IllegalArgumentException("Unsupported field type: " + field.getType().getCanonicalName());
                     }
@@ -138,8 +130,6 @@ Ten kod ma na celu umożliwienie skalowalności poprzez wykorzystanie adnotacji 
 + Ustawiłem dostępność prywatnych pól poprzez użycie field.setAccessible(true).
 + Dodałem dodatkowe sprawdzenie dla wartości null, aby uniknąć wyjątków.
 + Użyłem wyrażenia switch z jawnymi wartościami dla typów pól, co pozwala uniknąć konieczności korzystania z metody instanceof.
-+ Dodatkowo obsłużyłem typ Optional, dzięki czemu można bezpiecznie używać pola, które może być nullem lub zawierać wartość opakowaną w Optional.
-
 
 
 
