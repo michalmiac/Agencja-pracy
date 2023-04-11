@@ -66,9 +66,140 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
 
 
 ### Poniżej przedstawione zostały fragmenty kodu oprogramowania, które służą do obsługi zadań biurowych i mają na celu pokazanie technicznych rozwiązań zastosowanych w aplikacji. Przedstawione kod zostały zaprojektowany z myślą o zwiększeniu efektywności programowania oraz zapewnieniu większej wydajności i skalowalności aplikacji. Dzięki nim tworzenie aplikacji staje się bardziej intuicyjne, a programowanie jest łatwiejsze i szybsze.
-![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-13-21.png)
-![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-17-03.png)
-![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-54.png)
-![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-37.png)
+
+<pre><code> default Object createDto(Object dtoObject, Object controllerClass, @Nullable List<?> list, @Nullable String ARRAY_NAME) throws IOException {
+    ObjectMapper mapper = new ObjectMapper();
+    ObjectNode jsonNode = mapper.createObjectNode();
+
+    for (Field field : controllerClass.getClass().getDeclaredFields()) {
+        if (field.isAnnotationPresent(MyAnno.class)) {
+            field.setAccessible(true);
+            try {
+                Object value = field.get(controllerClass);
+
+                if (value == null) {
+                    jsonNode.putNull(field.getName());
+                } else {
+                    switch (field.getType().getCanonicalName()) {
+                        case "javafx.scene.control.TextField":
+                            jsonNode.put(field.getName(), ((TextField) value).getText());
+                            break;
+                        case "javafx.scene.control.DatePicker":
+                            LocalDate dateValue = ((DatePicker) value).getValue();
+                            jsonNode.put(field.getName(), dateValue != null ? dateValue.toString() : null);
+                            break;
+                        case "javafx.scene.control.ChoiceBox":
+                            jsonNode.put(field.getName(), ((ChoiceBox<?>) value).getValue().toString());
+                            break;
+                        case "javafx.scene.control.CheckBox":
+                            jsonNode.put(field.getName(), ((CheckBox) value).isSelected());
+                            break;
+                        case "javafx.scene.control.TextArea":
+                            jsonNode.put(field.getName(), ((TextArea) value).getText());
+                            break;
+                        case "java.lang.String":
+                            jsonNode.put(field.getName(), (String) value);
+                            break;
+                        case "java.util.Optional":
+                            Optional<?> optional = (Optional<?>) value;
+                            if (optional.isPresent()) {
+                                jsonNode.put(field.getName(), optional.get().toString());
+                            } else {
+                                jsonNode.putNull(field.getName());
+                            }
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Unsupported field type: " + field.getType().getCanonicalName());
+                    }
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    if (list != null && !list.isEmpty()) {
+        ArrayNode arrayNode = mapper.createArrayNode();
+        for (Object scheduleInfoDto : list) {
+            String scheduleInfoJson = mapper.writeValueAsString(scheduleInfoDto);
+            arrayNode.add(mapper.readTree(scheduleInfoJson));
+        }
+        jsonNode.set(ARRAY_NAME, arrayNode);
+    }
+
+    dtoObject = mapper.treeToValue(jsonNode, dtoObject.getClass());
+    return dtoObject;
+}
+    </code></pre>
+    
+Ten kod ma na celu umożliwienie skalowalności poprzez wykorzystanie adnotacji MyAnno, która pozwala swobodnie określać pola, z których ma być wyciągnięta wartość. Dzięki temu można w łatwy sposób dodać nowe pola bez konieczności modyfikowania metody createDto.
+    
++ Użyłem obiektu ObjectNode do przechowywania kluczy i wartości w formacie JSON.
++ Ustawiłem dostępność prywatnych pól poprzez użycie field.setAccessible(true).
++ Dodałem dodatkowe sprawdzenie dla wartości null, aby uniknąć wyjątków.
++ Użyłem wyrażenia switch z jawnymi wartościami dla typów pól, co pozwala uniknąć konieczności korzystania z metody instanceof.
++ Dodatkowo obsłużyłem typ Optional, dzięki czemu można bezpiecznie używać pola, które może być nullem lub zawierać wartość opakowaną w Optional.
+
+
+
+     <code><pre> default void setEventHandlerOnAllElements(Object controllerClass, EventHandleInterfaceHandler eventHandleInterfaceHandler, ButtonEventHandleInterfaceHandler buttonEventHandleInterfaceHandler)  {
+        Arrays.stream(controllerClass.getClass().getFields()).filter(fieldAll -> fieldAll.isAnnotationPresent(MyAnno.class)).forEach(fieldFiltered -> {
+            switch (fieldFiltered.getType().getCanonicalName()) {
+                case "javafx.scene.control.Button":
+                    Button button = null;
+                    try {
+                        button = (Button) fieldFiltered.get(controllerClass);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            buttonEventHandleInterfaceHandler.handle();
+                        }
+                    });
+                    break;
+                case "javafx.scene.control.CheckBox":
+                    CheckBox checkBox = null;
+                    try {
+                        checkBox = (CheckBox) fieldFiltered.get(controllerClass);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                    checkBox.setOnAction(new EventHandler<ActionEvent>() {
+                        @SneakyThrows
+                        @Override
+                        public void handle(ActionEvent event) {
+                            eventHandleInterfaceHandler.handle();
+                        }
+                    });
+                    break;
+                case "javafx.scene.control.ChoiceBox":
+                    ChoiceBox choiceBox = null;
+                    try {
+                        choiceBox = (ChoiceBox) fieldFiltered.get(controllerClass);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                    choiceBox.setOnAction(new EventHandler<ActionEvent>() {
+                        @SneakyThrows
+                        @Override
+                        public void handle(ActionEvent event) {
+                            eventHandleInterfaceHandler.handle();
+                        }
+                    });
+                    break;
+            }
+
+        });
+
+
+    }
+    
+        </code></pre>
+
+
+Powyższy kod mać na celu ułatwienie obsługi zdarzeń dla wielu elementów interfejsu użytkownika w kontrolerze w JavaFX. Adnotacja MyAnno została stworzona specjalnie do tego celu i służy do oznaczania pól w klasie kontrolera, które mają być użyte do obsługi zdarzeń. Zgodnie z kodem, tylko pola oznaczone tą adnotacją będą przetwarzane w metodzie setEventHandlerOnAllElements.
+To podejście może ułatwić programowanie interfejsu użytkownika, gdyż pozwala na zdefiniowanie pól, które mają być użyte do obsługi zdarzeń, a następnie ich szybkie i łatwe przetwarzanie w całej klasie kontrolera.
 
 
