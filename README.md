@@ -62,3 +62,4 @@ W tym ujęciu przedstawiony jest moduł odpowiedzialny za przechowywanie dokumen
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-54.png)
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2018-18-37.png)
 
+
