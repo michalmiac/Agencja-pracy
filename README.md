@@ -142,7 +142,8 @@ Ten kod ma na celu umożliwienie skalowalności poprzez wykorzystanie adnotacji 
 
 
 
-     <code><pre> default void setEventHandlerOnAllElements(Object controllerClass, EventHandleInterfaceHandler eventHandleInterfaceHandler, ButtonEventHandleInterfaceHandler buttonEventHandleInterfaceHandler)  {
+
+<pre><code> default void setEventHandlerOnAllElements(Object controllerClass, EventHandleInterfaceHandler eventHandleInterfaceHandler, ButtonEventHandleInterfaceHandler buttonEventHandleInterfaceHandler)  {
         Arrays.stream(controllerClass.getClass().getFields()).filter(fieldAll -> fieldAll.isAnnotationPresent(MyAnno.class)).forEach(fieldFiltered -> {
             switch (fieldFiltered.getType().getCanonicalName()) {
                 case "javafx.scene.control.Button":
@@ -195,8 +196,7 @@ Ten kod ma na celu umożliwienie skalowalności poprzez wykorzystanie adnotacji 
 
 
     }
-    
-        </code></pre>
+    </code></pre>
 
 
 Powyższy kod mać na celu ułatwienie obsługi zdarzeń dla wielu elementów interfejsu użytkownika w kontrolerze w JavaFX. Adnotacja MyAnno została stworzona specjalnie do tego celu i służy do oznaczania pól w klasie kontrolera, które mają być użyte do obsługi zdarzeń. Zgodnie z kodem, tylko pola oznaczone tą adnotacją będą przetwarzane w metodzie setEventHandlerOnAllElements.
