@@ -33,6 +33,10 @@ Na powyższym zdjęciu widoczne są elementy elektroniczne ułożone kolejno od 
 # Oprogramowanie do obsługi biura
 ### Poniżej przedstawiono graficzne ujęcia niektórych modułów programu do zarządzania zadaniami w biurze. Stanowią one jedynie niewielki wycinek dostępnych funkcjonalności, a ich celem jest ogólne zobrazowanie zadań, które stoją przed naszą firmą.
 
+![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Steilen-Personal-Care-FRONTEND-(2).svg)
+
+
+
 ![My animated logo](https://github.com/michalmiac/Agencja-pracy/blob/main/graphics/Screenshot%20from%202023-04-07%2015-44-34.png)
 
 Powyżej przedstawiono ekran powitalny programu. Pracownik może zdecydować, czy chce się zalogować do systemu. W zależności od lokalizacji użytkownika, program oferuje wybór typu połączenia z bazą danych.
